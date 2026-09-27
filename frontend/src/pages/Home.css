@@ -1,0 +1,686 @@
+/*
+  Miranda Broadsheet Home Page Styling
+  Implements the full newspaper editorial broadsheet aesthetic per DESIGN.md
+*/
+
+.home-page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-43);
+  color: var(--color-ink-black);
+}
+
+/* 1. Broadsheet Masthead / Dateline Strip */
+.broadsheet-masthead {
+  margin-top: calc(-1 * var(--spacing-14));
+  margin-bottom: var(--spacing-14);
+}
+
+.masthead-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--spacing-10);
+  font-family: var(--font-editorial-new);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-charcoal);
+  padding-bottom: 8px;
+}
+
+.masthead-tag {
+  font-weight: var(--font-weight-medium);
+  color: var(--color-ink-black);
+}
+
+.masthead-vol,
+.masthead-edition {
+  border-left: 1px solid rgba(29, 29, 27, 0.2);
+  padding-left: 12px;
+}
+
+.masthead-date {
+  font-weight: var(--font-weight-medium);
+  color: var(--color-ink-black);
+}
+
+.masthead-double-rule {
+  height: 4px;
+  border-top: 1px solid var(--color-ink-black);
+  border-bottom: 1px solid var(--color-ink-black);
+  margin-top: 2px;
+}
+
+/* 2. Three-Column Section Header (Image — Type — Image) */
+.broadsheet-three-col-hero {
+  display: grid;
+  grid-template-columns: 1fr 1.35fr 1fr;
+  gap: var(--spacing-28);
+  align-items: stretch;
+}
+
+.hero-spotlight-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-bone-cream);
+  border-radius: var(--radius-cards);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease;
+}
+
+.hero-spotlight-card:hover {
+  transform: translateY(-2px);
+}
+
+.hero-spotlight-image-box {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--color-parchment);
+}
+
+.hero-spotlight-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius-images); /* 0px radius */
+  filter: contrast(1.04) saturate(0.95);
+  transition: transform 0.3s ease;
+}
+
+.hero-spotlight-card:hover .hero-spotlight-img {
+  transform: scale(1.03);
+}
+
+.hero-spotlight-caption {
+  padding: var(--spacing-17) var(--spacing-22);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.spotlight-tag {
+  font-family: var(--font-editorial-new);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-charcoal);
+}
+
+.spotlight-title {
+  font-family: var(--font-domaine-display);
+  font-weight: var(--font-weight-medium);
+  font-size: 18px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--color-ink-black);
+}
+
+.spotlight-loc {
+  font-family: var(--font-editorial-new);
+  font-size: 13px;
+  color: var(--color-charcoal);
+  margin-top: auto;
+}
+
+/* Hero Center Column */
+.hero-center-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--spacing-14) var(--spacing-22);
+  background: var(--color-parchment);
+}
+
+.center-seal-wrapper {
+  margin-bottom: var(--spacing-14);
+}
+
+/* Stamp Seal Illustration per DESIGN.md Section 147 */
+.stamp-seal-badge {
+  display: inline-block;
+  background: var(--color-parchment);
+  border: 1.5px dashed var(--color-charcoal);
+  border-radius: var(--radius-cards); /* 11.52px */
+  padding: 6px;
+  box-shadow: var(--shadow-sm);
+}
+
+.stamp-perforation-border {
+  border: 1px solid var(--color-ink-black);
+  border-radius: 6px;
+  padding: 8px 14px;
+  background: #ebe7e4;
+}
+
+.stamp-inner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.stamp-sunburst-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stamp-text-meta {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.stamp-series {
+  font-family: var(--font-editorial-new);
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  color: var(--color-ember-orange);
+  font-weight: var(--font-weight-medium);
+  text-transform: uppercase;
+}
+
+.stamp-title {
+  font-family: var(--font-editorial-new);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--color-ink-black);
+  text-transform: uppercase;
+  font-weight: var(--font-weight-regular);
+}
+
+.hero-center-heading {
+  font-family: var(--font-canopee);
+  font-weight: var(--font-weight-regular);
+  font-size: clamp(44px, 5.5vw, 76px);
+  line-height: 0.88;
+  letter-spacing: 0.01em;
+  color: var(--color-ink-black);
+  margin-bottom: var(--spacing-14);
+}
+
+.hero-center-subhead {
+  font-family: var(--font-editorial-new);
+  font-weight: var(--font-weight-light);
+  font-size: var(--text-body-sm);
+  line-height: var(--leading-body-sm);
+  letter-spacing: var(--tracking-body-sm);
+  color: var(--color-charcoal);
+  max-width: 360px;
+  margin-bottom: var(--spacing-22);
+}
+
+.hero-cta-buttons {
+  display: flex;
+  gap: var(--spacing-10);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.hero-report-btn {
+  background: var(--color-ember-orange) !important;
+  color: #fff !important;
+  border-color: var(--color-ink-black) !important;
+}
+
+.hero-report-btn:hover {
+  background: #a3320c !important;
+  border-color: var(--color-pure-black) !important;
+}
+
+/* 3. Full-Width Display Banner Block (Canopee woodblock style) */
+.broadsheet-display-banner {
+  background: var(--color-ink-black);
+  margin-left: calc(-1 * var(--spacing-28));
+  margin-right: calc(-1 * var(--spacing-28));
+  padding: var(--spacing-22) var(--spacing-28);
+  overflow: hidden;
+  border-top: 1px solid var(--color-pure-black);
+  border-bottom: 1px solid var(--color-pure-black);
+}
+
+.display-banner-inner {
+  max-width: var(--page-max-width);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.display-banner-title {
+  display: block;
+  font-family: var(--font-canopee);
+  font-weight: var(--font-weight-regular);
+  font-size: clamp(68px, 14vw, 300px);
+  line-height: 0.78;
+  letter-spacing: -0.02em;
+  color: var(--color-parchment);
+  text-transform: uppercase;
+  white-space: nowrap;
+  user-select: none;
+}
+
+/* 4. Drop Cap Bio / Institutional Intro Block */
+.broadsheet-dropcap-block {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: var(--spacing-43);
+  align-items: start;
+  border-bottom: 1px solid var(--color-ink-black);
+  padding-bottom: var(--spacing-36);
+}
+
+.dropcap-col-left {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-14);
+}
+
+.dropcap-paragraph {
+  font-family: var(--font-editorial-new);
+  font-size: 19px;
+  line-height: 1.35;
+  letter-spacing: -0.015em;
+  color: var(--color-ink-black);
+}
+
+.dropcap-letter {
+  float: left;
+  font-family: var(--font-canopee);
+  font-size: 92px;
+  line-height: 0.75;
+  padding-top: 4px;
+  padding-right: 14px;
+  padding-bottom: 0px;
+  color: var(--color-ink-black);
+}
+
+.dropcap-sub-paragraph {
+  font-family: var(--font-editorial-new);
+  font-size: var(--text-body-sm);
+  line-height: var(--leading-body-sm);
+  color: var(--color-charcoal);
+}
+
+.dropcap-col-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-left: 1px solid rgba(29, 29, 27, 0.2);
+  padding-left: var(--spacing-36);
+}
+
+.dropcap-headline {
+  font-family: var(--font-canopee);
+  font-weight: var(--font-weight-regular);
+  font-size: clamp(32px, 3.8vw, 52px);
+  line-height: 0.92;
+  letter-spacing: 0.01em;
+  color: var(--color-ink-black);
+  margin-bottom: var(--spacing-22);
+}
+
+.dropcap-signature-row {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-family: var(--font-editorial-new);
+  font-size: 13px;
+  color: var(--color-charcoal);
+  border-top: 1px solid rgba(29, 29, 27, 0.15);
+  padding-top: var(--spacing-10);
+}
+
+.signature-mark {
+  font-style: italic;
+  color: var(--color-ink-black);
+}
+
+.signature-loc {
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Guest Notice Strip */
+.home-guest-banner {
+  background: var(--color-bone-cream);
+  border: 1px solid var(--color-ink-black);
+  border-radius: var(--radius-tags);
+  padding: var(--spacing-12) var(--spacing-17);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--spacing-10);
+}
+
+.guest-banner-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.guest-badge {
+  background: var(--color-ink-black);
+  color: var(--color-parchment);
+  font-family: var(--font-editorial-new);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  padding: 3px 6px;
+  border-radius: var(--radius-tags);
+  text-transform: uppercase;
+}
+
+.guest-text {
+  font-family: var(--font-editorial-new);
+  font-size: var(--text-caption);
+  color: var(--color-ink-black);
+}
+
+.guest-login-link-btn {
+  background: none;
+  border: none;
+  color: var(--color-ember-orange);
+  font-family: var(--font-editorial-new);
+  font-size: var(--text-caption);
+  font-weight: var(--font-weight-medium);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+  padding: 0;
+}
+
+.guest-login-link-btn:hover {
+  color: #a3320c;
+}
+
+/* 5. Broadsheet Filter Section */
+.broadsheet-filter-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-10);
+}
+
+.category-strip-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.category-strip-label {
+  font-family: var(--font-editorial-new);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-charcoal);
+}
+
+.category-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.category-pill-btn {
+  background: var(--color-bone-cream);
+  border: 1px solid var(--color-ink-black);
+  color: var(--color-ink-black);
+  font-family: var(--font-editorial-new);
+  font-size: var(--text-caption);
+  padding: 6px 14px;
+  border-radius: var(--radius-tags);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.category-pill-btn:hover {
+  background: var(--color-ink-black);
+  color: var(--color-parchment);
+}
+
+.category-pill-btn.active {
+  background: var(--color-ink-black);
+  color: var(--color-parchment);
+  font-weight: var(--font-weight-medium);
+}
+
+/* 7. Section Header */
+.home-section-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  border-bottom: 2px solid var(--color-ink-black);
+  padding-bottom: var(--spacing-12);
+  gap: var(--spacing-14);
+}
+
+.section-main-heading {
+  font-family: var(--font-canopee);
+  font-weight: var(--font-weight-regular);
+  font-size: clamp(30px, 4vw, 44px);
+  line-height: 0.92;
+  letter-spacing: 0.02em;
+  color: var(--color-ink-black);
+}
+
+.queue-subtext {
+  display: block;
+  font-family: var(--font-editorial-new);
+  font-size: 13px;
+  color: var(--color-charcoal);
+  margin-top: 4px;
+}
+
+.header-meta-count {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+}
+
+.count-number {
+  font-family: var(--font-canopee);
+  font-size: 36px;
+  line-height: 0.85;
+  color: var(--color-ink-black);
+}
+
+.count-label {
+  font-family: var(--font-editorial-new);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-charcoal);
+}
+
+/* 8. Broadsheet Grid */
+.broadsheet-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-28);
+}
+
+/* Broadsheet Empty State */
+.broadsheet-empty {
+  background: var(--color-bone-cream);
+  border-radius: var(--radius-cards);
+  border: 1px dashed var(--color-charcoal);
+  padding: var(--spacing-58) var(--spacing-28);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.empty-seal {
+  font-size: 48px;
+  color: var(--color-charcoal);
+  line-height: 1;
+  margin-bottom: var(--spacing-14);
+}
+
+.empty-title {
+  font-family: var(--font-domaine-display);
+  font-size: 22px;
+  color: var(--color-ink-black);
+  margin-bottom: var(--spacing-22);
+}
+
+/* 9. Secondary Display Banner */
+.broadsheet-secondary-banner {
+  background: var(--color-ink-black);
+  margin-left: calc(-1 * var(--spacing-28));
+  margin-right: calc(-1 * var(--spacing-28));
+  padding: var(--spacing-17) var(--spacing-28);
+  overflow: hidden;
+  border-top: 1px solid var(--color-pure-black);
+  border-bottom: 1px solid var(--color-pure-black);
+}
+
+.secondary-banner-inner {
+  max-width: var(--page-max-width);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.secondary-banner-title {
+  display: block;
+  font-family: var(--font-canopee);
+  font-size: clamp(44px, 8vw, 130px);
+  line-height: 0.82;
+  letter-spacing: -0.01em;
+  color: var(--color-parchment);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* 10. Broadsheet Gazette Notice Columns */
+.broadsheet-notice-columns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-28);
+  border-top: 1px solid var(--color-ink-black);
+  border-bottom: 1px solid var(--color-ink-black);
+  padding: var(--spacing-28) 0;
+}
+
+.notice-column {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.notice-column:not(:last-child) {
+  border-right: 1px solid rgba(29, 29, 27, 0.2);
+  padding-right: var(--spacing-22);
+}
+
+.notice-num {
+  font-family: var(--font-canopee);
+  font-size: 28px;
+  line-height: 1;
+  color: var(--color-ember-orange);
+}
+
+.notice-title {
+  font-family: var(--font-editorial-new);
+  font-weight: var(--font-weight-medium);
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-ink-black);
+}
+
+.notice-body {
+  font-family: var(--font-editorial-new);
+  font-size: 14px;
+  line-height: 1.35;
+  color: var(--color-charcoal);
+}
+
+/* 11. Broadsheet Footer */
+.broadsheet-footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-36);
+  padding-top: var(--spacing-14);
+  font-family: var(--font-editorial-new);
+  font-size: 13px;
+  line-height: 1.35;
+  color: var(--color-charcoal);
+  border-top: 1px solid rgba(29, 29, 27, 0.2);
+}
+
+.footer-brand {
+  display: block;
+  font-family: var(--font-domaine-display);
+  font-size: 16px;
+  font-weight: var(--font-weight-medium);
+  color: var(--color-ink-black);
+  margin-bottom: 4px;
+}
+
+.footer-meta-label {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-ink-black);
+  margin-bottom: 4px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+  .broadsheet-three-col-hero {
+    grid-template-columns: 1fr 1fr;
+  }
+  .hero-spotlight-card.right {
+    display: none;
+  }
+  .hero-center-column {
+    grid-column: span 1;
+  }
+  .broadsheet-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .broadsheet-three-col-hero {
+    grid-template-columns: 1fr;
+  }
+  .hero-spotlight-card.left {
+    display: none;
+  }
+  .broadsheet-dropcap-block {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-22);
+  }
+  .dropcap-col-right {
+    border-left: none;
+    padding-left: 0;
+    border-top: 1px solid rgba(29, 29, 27, 0.2);
+    padding-top: var(--spacing-22);
+  }
+  .broadsheet-notice-columns {
+    grid-template-columns: 1fr;
+  }
+  .notice-column:not(:last-child) {
+    border-right: none;
+    border-bottom: 1px solid rgba(29, 29, 27, 0.2);
+    padding-right: 0;
+    padding-bottom: var(--spacing-17);
+  }
+  .broadsheet-footer {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-17);
+  }
+  .broadsheet-grid {
+    grid-template-columns: 1fr;
+  }
+}
